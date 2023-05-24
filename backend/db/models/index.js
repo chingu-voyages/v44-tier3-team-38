@@ -37,16 +37,16 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
-// const testConnection = async () => {
-//   try {
-//     await sequelize.authenticate();
-//     console.log("Connection has been established successfully.");
-//     console.log(sequelize.getDatabaseName());
-//   } catch (error) {
-//     console.error("Unable to connect to the database:", error);
-//   }
-// };
-// testConnection();
+const testConnection = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log("Connection has been established successfully.");
+    console.log(sequelize.getDatabaseName());
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
+};
+testConnection();
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
