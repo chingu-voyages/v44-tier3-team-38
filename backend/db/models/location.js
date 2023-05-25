@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     Location.belongsTo(models.Trip, {
       foreignKey: {
         name: 'tripId',
-        allowNull: false
+        allowNull: false,
+        onDelete: 'CASCADE'
       }
     });
   };

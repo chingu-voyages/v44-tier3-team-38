@@ -33,7 +33,10 @@ app.use(
 store.sync();
 sequelize.sync();
 
-app.use("/trips/:tripId/locations", locationsRouter);
+app.use("/trips/:tripId/locations", (req, res, next) => {
+  req.tripId = req.params.tripId; // Assign the tripId to a property on the request object
+  next();
+}, locationsRouter);
 app.use("/trips", tripsRouter);
 
 // catch 404 and forward to error handler

@@ -28,10 +28,8 @@ router.post("/", async function (req, res, next) {
 
 // GET TRIP BY TRIPID
 router.get("/:tripId", async function (req, res, next) {
-  let trip;
-  try {
-    trip = await Trip.findById(req.params.tripId);
-  } catch (err) {
+  const trip = await Trip.findByPk(req.params.tripId);
+  if(trip === null) {
     const error = new Error("Trip not found");
     error.status = 404;
     error.name = "Trip not found";
@@ -42,8 +40,9 @@ router.get("/:tripId", async function (req, res, next) {
 
 router.delete("/:tripId", async function (req, res, next) {
   try {
-    const trip = await Trip.findById(req.params.tripId);
-    trip.delete();
+    const trip = await Trip.findByPk(req.params.tripId);
+    await trip.destroy();
+    return res.send("trip has been successfully deleted");
   } catch (err) {
     next(err);
   }
