@@ -1,0 +1,32 @@
+var express = require("express");
+var router = express.Router();
+const Location = require("../db/models")["Location"];
+
+// var Trip = require("");
+/* GET home page. */
+
+const tripId = req.params.tripId;
+
+router.get("/", async function (req, res, next) {
+  const locations = await Location.findAll({
+    where: {
+      tripId
+    }
+  });
+  res.json(locations);
+});
+
+router.post("/", async function (req, res, next) {
+  const name = req.body.name;
+  const address = req.body.address;
+  const newLocation = new Location({
+    tripId,
+    name,
+    address
+  });
+
+  let location = await newLocation.save();
+  return res.json(location);
+});
+
+module.exports = router;

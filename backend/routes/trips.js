@@ -10,11 +10,11 @@ router.get("/", async function (req, res, next) {
 });
 
 router.post("/", async function (req, res, next) {
-  const startDate = new Date(req.body.startDate);
-  const endDate = new Date(req.body.endDate);
+  const title = req.body.title;
+  const date = new Date(req.body.date);
   const newTrip = new Trip({
-    startDate,
-    endDate,
+    title,
+    date
   });
 
   let trip = await newTrip.save();
