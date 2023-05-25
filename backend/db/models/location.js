@@ -2,14 +2,28 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Location = sequelize.define('Location', {
-    tripId: DataTypes.INTEGER,
-    name: DataTypes.STRING, 
-    address: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      }
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    }
   }, {});
   Location.associate = function(models) {
     // associations can be defined here
     Location.belongsTo(models.Trip, {
-      foreignKey: 'tripId'
+      foreignKey: {
+        name: 'tripId',
+        allowNull: false
+      }
     });
   };
   return Location;

@@ -6,10 +6,8 @@ const logger = require("morgan");
 const { sequelize } = require("./db/models");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const tripsRouter = require("./routes/trips");
-const locationsRouter = require("./routes/locations");
+const tripsRouter = require("./routes/api/trips");
+const locationsRouter = require("./routes/api/locations");
 
 const app = express();
 
@@ -35,10 +33,8 @@ app.use(
 store.sync();
 sequelize.sync();
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/trips/:tripId/locations", locationsRouter);
 app.use("/trips", tripsRouter);
-app.use("/locations/:tripId", locationsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -50,10 +46,10 @@ app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
-
+  console.log(err);
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.json(err);
 });
 
 module.exports = app;
