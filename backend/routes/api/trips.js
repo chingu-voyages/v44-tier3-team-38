@@ -38,6 +38,7 @@ router.get("/:tripId", async function (req, res, next) {
   return res.json({ trip });
 });
 
+//DELETE TRIP BY TRIPID
 router.delete("/:tripId", async function (req, res, next) {
   try {
     const trip = await Trip.findByPk(req.params.tripId);
