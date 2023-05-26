@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
+import LoginFormModal from "../components/auth/Login/LoginFormModal";
+import SignUpFormModal from "../components/auth/SignUp/SignUpFormModal";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -10,12 +12,14 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-5">
         <Hamburger toggled={isOpen} toggle={setOpen} />
         <div className="flex items-center gap-3">
-          <Link className="mx-2" to="/login" onClick={() => setOpen(false)}>
+          {/* <Link className="mx-2" to="/login" onClick={() => setOpen(false)}>
             Login
-          </Link>
-          <Link className="mx-2" to="/signup" onClick={() => setOpen(false)}>
+            </Link>
+            <Link className="mx-2" to="/signup" onClick={() => setOpen(false)}>
             Signup
-          </Link>
+          </Link> */}
+          <LoginFormModal />
+          <SignUpFormModal />
         </div>
       </div>
 
