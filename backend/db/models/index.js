@@ -27,7 +27,12 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach((file) => {
-    const model = sequelize["import"](path.join(__dirname, file));
+    // commenting next line because sequelize.import is deprecated see following link for reference https://sequelize.org/docs/v6/moved/models-definition/
+    //const model = sequelize["import"](path.join(__dirname, file));
+    const model = require(path.join(__dirname, file))(
+      sequelize,
+      Sequelize.DataTypes
+    );
     db[model.name] = model;
   });
 
