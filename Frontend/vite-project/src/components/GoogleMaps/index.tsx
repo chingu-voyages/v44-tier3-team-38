@@ -9,10 +9,8 @@ import "./GoogleMaps.css";
 // console.log(latMarker, lngMarker);
 
 const containerStyle = {
-  height: "400px",
-  width: "800px",
-  // height: "100vh",
-  // width: "100%",
+  height: "100vh",
+  width: "100%",
 };
 
 // const markerPosition = {
@@ -39,7 +37,7 @@ const locations = [
 const TripGoogleMaps: React.FC = () => {
   const center = useMemo(() => ({ lat: 37.09024, lng: -95.712891 }), []);
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAGiZ0jn302vwLSuChWuuRziuxMWfvEmKs",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
   // console.log('ISLOADED: ', isLoaded);
