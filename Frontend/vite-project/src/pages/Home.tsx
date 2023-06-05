@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Settings, { DefaultSettingsT, SettingsT } from './Settings';
+import Settings, { DefaultSettingsT, SettingsT } from '../components/Settings';
 import Carousel from 'react-material-ui-carousel';
 import '../style/Example.scss';
 
