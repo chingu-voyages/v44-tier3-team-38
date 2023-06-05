@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 // import { business } from "./mockData";
 import "./GoogleMaps.css";
@@ -9,14 +9,18 @@ import "./GoogleMaps.css";
 // console.log(latMarker, lngMarker);
 
 const containerStyle = {
-  height: "100vh",
-  width: "100%",
+  height: "400px",
+  width: "800px",
+  // height: "100vh",
+  // width: "100%",
 };
 
 // const markerPosition = {
 //   lat: latMarker,
 //   lng: lngMarker,
 // };
+
+// testing data
 const locations = [
   {
     lat: 37.772,
@@ -38,21 +42,26 @@ const TripGoogleMaps: React.FC = () => {
     googleMapsApiKey: "AIzaSyAGiZ0jn302vwLSuChWuuRziuxMWfvEmKs",
   });
 
+  // console.log('ISLOADED: ', isLoaded);
 
-  const mapProps = {
-    center,
-    zoom: 4.5,
-  };
+  // const mapProps = {
+  //   center,
+  //   zoom: 4.5,
+  // };
 
   const onLoad = (marker: any) => {
     console.log("marker: ", marker);
   };
 
   return isLoaded ? (
-    <GoogleMap mapContainerStyle={containerStyle} {...mapProps}>
+    <GoogleMap mapContainerStyle={containerStyle} zoom={4.5} center={center}>
       {locations?.length &&
         locations?.map((markerPos) => (
-          <Marker onLoad={onLoad} position={markerPos} />
+          <Marker
+            key={locations.indexOf(markerPos)}
+            onLoad={onLoad}
+            position={markerPos}
+          />
         ))}
     </GoogleMap>
   ) : (
