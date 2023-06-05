@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import { Redirect } from "react-router-dom";
 import { RootState, AppDispatch } from "../../../store/index";
 import { login } from "../../../store/session";
-
-// TODO DEMO
-// import Demo from "../DemoLogin";
+import Demo from "../Demo";
 
 interface LoginFormProps {}
 
@@ -75,7 +73,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
           <button className="user-buttons" type="submit">
             Login
           </button>
-          {/* <Demo /> */}
+          <Demo />
         </div>
       </form>
     </>

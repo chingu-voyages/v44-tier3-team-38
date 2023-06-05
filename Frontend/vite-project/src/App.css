@@ -1,0 +1,7 @@
+.main-map {
+  width: calc(100% - 840px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
