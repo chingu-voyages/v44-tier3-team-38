@@ -53,6 +53,7 @@ const TripGoogleMaps: React.FC = () => {
 
   return isLoaded ? (
     <GoogleMap mapContainerStyle={containerStyle} zoom={4.5} center={center}>
+      // TODO MARKER NOT WORKING
       {locations?.length &&
         locations?.map((markerPos) => (
           <Marker
