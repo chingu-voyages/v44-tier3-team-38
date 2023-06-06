@@ -1,4 +1,4 @@
-@import 'global';
+// @import 'global';
 
 .Banner
 {
@@ -31,7 +31,7 @@
 
             font:
             {
-                size: $bigger-font-size;
+                size: 21px;
                 weight: 200;
             }
 
@@ -61,7 +61,7 @@
     .Content
     {
         color: white;
-        background-color: $dark-red;
+        background-color: rgb(119, 24, 24);
         height: 100%;
 
         position: relative;
@@ -74,18 +74,18 @@
 
         &:hover, &:active
         {
-            background-color: $dark-red-active;
+            background-color: rgb(87, 17, 17);
 
             .ViewButton
             {
-                background-color: $almost-white;
-                color: $dark-red
+                background-color: rgb(241, 241, 241);
+                color: rgb(119, 24, 24)
             }
         }
 
         .Title
         {
-            font-size: $big-header-font-size;
+            font-size: 30px;
             font-weight: 500;
             color: white;
         }
@@ -93,7 +93,7 @@
         .Caption
         {
             margin-top: 10px;
-            font-size: $normal-font-size;
+            font-size: 18px;
             color: white;
         }
 
@@ -102,7 +102,7 @@
             margin-top: 40px;
             color: white;
 
-            font-size: $header-font-size;
+            font-size: 25px;
             border: 3px solid white;
             text-transform: capitalize;
 
