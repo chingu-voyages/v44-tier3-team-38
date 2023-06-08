@@ -10,7 +10,14 @@ const Navbar = () => {
   return (
     <div className="h-[80px] w-[100%] bg-green">
       <div className="flex items-center justify-between px-5">
-        <Hamburger toggled={isOpen} toggle={setOpen} />
+      <Link to="/home">
+          <img
+            src="../../public/RoundTrip (1).png"
+            alt="logo"
+            width={100}
+            height={100}
+          />
+        </Link>
         <div className="flex items-center gap-3">
           {/* <Link className="mx-2" to="/login" onClick={() => setOpen(false)}>
             Login
@@ -20,6 +27,7 @@ const Navbar = () => {
           </Link> */}
           <LoginFormModal />
           <SignUpFormModal />
+          <Hamburger toggled={isOpen} toggle={setOpen} />
         </div>
       </div>
 
