@@ -129,30 +129,30 @@ const Banner = (props: BannerProps) => {
 const items: Item[] = [
     {
         Name: "Pick your destination",
-        Caption: "Search for a country or a city",
+        Caption: "Search for a country or a city to map",
         contentPosition: "left",
         Items: [
             {
-                Name: "Macbook Pro",
+                Name: "Miami, Florida",
                 Image: "https://source.unsplash.com/featured/?macbook"
             },
             {
-                Name: "iPhone",
+                Name: "New York City, New York",
                 Image: "https://source.unsplash.com/featured/?iphone"
             }
         ]
     },
     {
         Name: "Pick what to do in your destination",
-        Caption: "Add activities from Yelp suggestions",
+        Caption: "Add activities from suggestions",
         contentPosition: "middle",
         Items: [
             {
-                Name: "Washing Machine WX9102",
+                Name: "Botanical Gardens",
                 Image: "https://source.unsplash.com/featured/?washingmachine"
             },
             {
-                Name: "Learus Vacuum Cleaner",
+                Name: "Museum",
                 Image: "https://source.unsplash.com/featured/?vacuum,cleaner"
             }
         ]
@@ -163,11 +163,11 @@ const items: Item[] = [
         contentPosition: "right",
         Items: [
             {
-                Name: "Living Room Lamp",
+                Name: "Pizza",
                 Image: "https://source.unsplash.com/featured/?lamp"
             },
             {
-                Name: "Floral Vase",
+                Name: "Sushi",
                 Image: "https://source.unsplash.com/featured/?vase"
             }
         ]
