@@ -19,7 +19,7 @@ const Home = () => {
 
     return (
         <div style={{ marginTop: "50px", color: "#494949" }}>
-            <Typography variant='h4'>Example: eBay&trade; style</Typography>
+            <Typography variant='h4'>Welcome to RoundTrip</Typography>
             <br/>
             <Carousel
                 className="Example"
@@ -128,8 +128,8 @@ const Banner = (props: BannerProps) => {
 
 const items: Item[] = [
     {
-        Name: "Electronics",
-        Caption: "Electrify your friends!",
+        Name: "Pick your destination",
+        Caption: "Search for a country or a city",
         contentPosition: "left",
         Items: [
             {
@@ -143,8 +143,8 @@ const items: Item[] = [
         ]
     },
     {
-        Name: "Home Appliances",
-        Caption: "Say no to manual home labour!",
+        Name: "Pick what to do in your destination",
+        Caption: "Add activities from Yelp suggestions",
         contentPosition: "middle",
         Items: [
             {
@@ -158,8 +158,8 @@ const items: Item[] = [
         ]
     },
     {
-        Name: "Decoratives",
-        Caption: "Give style and color to your living room!",
+        Name: "Choose where to eat",
+        Caption: "Add restaurants based on proximity or ratings",
         contentPosition: "right",
         Items: [
             {
