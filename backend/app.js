@@ -1,7 +1,7 @@
 const createError = require("http-errors");
 const express = require("express");
 const cookieParser = require("cookie-parser");
-var cors = require("cors");
+const cors = require("cors");
 const logger = require("morgan");
 const { sequelize } = require("./db/models");
 const session = require("express-session");
@@ -10,6 +10,7 @@ const tripsRouter = require("./routes/api/trips");
 const locationsRouter = require("./routes/api/locations");
 const usersRoutes = require("./routes/api/users");
 const indexRoutes = require("./routes/api/index");
+const yelpRoutes = require("./routes/api/yelp");
 const { encryptPassword } = require("./controllers/userHelper");
 const Users = require("./db/models/")["users"];
 
@@ -70,6 +71,7 @@ app.use(
 
 app.use("/trips", tripsRouter);
 app.use("/users", usersRoutes);
+app.use("/yelp", yelpRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
