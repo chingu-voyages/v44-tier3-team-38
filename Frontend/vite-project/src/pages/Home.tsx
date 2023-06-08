@@ -15,7 +15,7 @@ import {
 
 const Home = () => {
 
-    const [settings, setSettings] = useState<SettingsT>(DefaultSettingsT);
+    // const [settings, setSettings] = useState<SettingsT>(DefaultSettingsT);
 
     return (
         <div style={{ marginTop: "50px", color: "#494949" }}>
