@@ -12,6 +12,9 @@ import {
     Button,
 } from '@mui/material';
 
+import beach from '../../public/SplashPageImages/beach.png'
+
+
 
 const Home = () => {
 
@@ -128,32 +131,32 @@ const Banner = (props: BannerProps) => {
 
 const items: Item[] = [
     {
-        Name: "Pick your destination",
+        Name: "Choose your destination",
         Caption: "Search for a country or a city to map",
         contentPosition: "left",
         Items: [
             {
                 Name: "Miami, Florida",
-                Image: "https://source.unsplash.com/featured/?macbook"
+                Image: "https://www.bahamasairtours.com/wp-content/uploads/2021/06/What-to-do-in-south-beach-miami-florida.jpg"
             },
             {
                 Name: "New York City, New York",
-                Image: "https://source.unsplash.com/featured/?iphone"
+                Image: "https://www.frommers.com/system/media_items/attachments/000/868/461/s980/Frommers-New-York-City-Getting-Around-1190x768.jpg?1647177178"
             }
         ]
     },
     {
-        Name: "Pick what to do in your destination",
+        Name: "Pick what to do",
         Caption: "Add activities from suggestions",
         contentPosition: "middle",
         Items: [
             {
                 Name: "Botanical Gardens",
-                Image: "https://source.unsplash.com/featured/?washingmachine"
+                Image: "https://i.guim.co.uk/img/media/c94fc7029cb459ccc6e2a2ff2fdf4d68c80b7baa/0_219_5760_3456/master/5760.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=ad97141ebc2fe9c42a72bdd5128bdaef"
             },
             {
-                Name: "Museum",
-                Image: "https://source.unsplash.com/featured/?vacuum,cleaner"
+                Name: "Museums",
+                Image: "https://www.britishmuseum.org/sites/default/files/styles/uncropped_small/public/2019-10/Visiting-Parthenon-gallery-british-museum.jpg?itok=W4b_GL3T"
             }
         ]
     },
@@ -164,11 +167,11 @@ const items: Item[] = [
         Items: [
             {
                 Name: "Pizza",
-                Image: "https://source.unsplash.com/featured/?lamp"
+                Image: "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg?w=2000"
             },
             {
                 Name: "Sushi",
-                Image: "https://source.unsplash.com/featured/?vase"
+                Image: "https://restaurantclicks.com/wp-content/uploads/2021/06/Omakase-A-Japanese-Dining-Experience-You-Need-To-Try.jpg"
             }
         ]
     }
