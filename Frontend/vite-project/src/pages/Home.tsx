@@ -23,7 +23,7 @@ const Home = () => {
             <br/>
             <Carousel
                 className="Example"
-                {...settings}
+                // {...settings}
                 // next={(now: any, previous:any) => console.log(`Next User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
                 // prev={(now, previous) => console.log(`Prev User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
                 // onChange={(now, previous) => console.log(`OnChange User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
@@ -40,7 +40,7 @@ const Home = () => {
                 }
             </Carousel>
             <br/>
-            <Settings settings={settings} setSettings={setSettings}/>
+            {/* <Settings settings={settings} setSettings={setSettings}/> */}
         </div>
     );
 }
