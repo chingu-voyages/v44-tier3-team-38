@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Settings, { DefaultSettingsT, SettingsT } from '../components/Settings';
 import Carousel from 'react-material-ui-carousel';
 import '../style/Home.scss';
 
@@ -17,8 +16,6 @@ import beach from '../../public/SplashPageImages/beach.png'
 
 
 const Home = () => {
-
-    // const [settings, setSettings] = useState<SettingsT>(DefaultSettingsT);
 
     return (
         <div style={{ marginTop: "50px", color: "#336B87" }}>
