@@ -11,10 +11,6 @@ import {
     Button,
 } from '@mui/material';
 
-import beach from '../../public/SplashPageImages/beach.png'
-
-
-
 const Home = () => {
 
     return (
