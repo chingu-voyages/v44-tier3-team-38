@@ -21,7 +21,7 @@ const Home = () => {
     // const [settings, setSettings] = useState<SettingsT>(DefaultSettingsT);
 
     return (
-        <div style={{ marginTop: "50px", color: "#494949" }}>
+        <div style={{ marginTop: "50px", color: "#336B87" }}>
             <Typography variant='h4'>Welcome to RoundTrip</Typography>
             <br/>
             <Carousel
