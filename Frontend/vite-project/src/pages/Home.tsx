@@ -27,7 +27,6 @@ const Home = () => {
                 }
             </Carousel>
             <br/>
-            {/* <Settings settings={settings} setSettings={setSettings}/> */}
         </div>
     );
 }
