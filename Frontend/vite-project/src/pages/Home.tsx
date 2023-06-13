@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Settings, { DefaultSettingsT, SettingsT } from '../components/Settings';
 import Carousel from 'react-material-ui-carousel';
 import '../style/Home.scss';
 
@@ -12,29 +11,14 @@ import {
     Button,
 } from '@mui/material';
 
-import beach from '../../public/SplashPageImages/beach.png'
-
-
-
 const Home = () => {
 
-    // const [settings, setSettings] = useState<SettingsT>(DefaultSettingsT);
-
     return (
-        <div style={{ marginTop: "50px", color: "#494949" }}>
+        <div style={{ marginTop: "50px", color: "#336B87" }}>
             <Typography variant='h4'>Welcome to RoundTrip</Typography>
             <br/>
             <Carousel
                 className="Example"
-                // {...settings}
-                // next={(now: any, previous:any) => console.log(`Next User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
-                // prev={(now, previous) => console.log(`Prev User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
-                // onChange={(now, previous) => console.log(`OnChange User Callback: Now displaying child ${now}. Previously displayed child ${previous}`)}
-
-                // navButtonsProps={{style: {backgroundColor: 'cornflowerblue', borderRadius: 0}}}
-                // navButtonsWrapperProps={{style: {bottom: '0', top: 'unset', }}}
-                // indicatorContainerProps={{style: {margin: "20px"}}}
-                // NextIcon='next'
             >
                 {
                     items.map((item, index) => {
@@ -43,7 +27,6 @@ const Home = () => {
                 }
             </Carousel>
             <br/>
-            {/* <Settings settings={settings} setSettings={setSettings}/> */}
         </div>
     );
 }
