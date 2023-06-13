@@ -35,21 +35,21 @@ const Navbar = () => {
         <div className="flex fixed flex-col justify-center bg-[#a6cfd5] w-[100%]">
           <Link
             to="/"
-            className="hover:text-white text-lg"
+            className="hover:text-white text-lg text-right"
             onClick={() => setOpen(false)}
           >
             Home
           </Link>
           <Link
             to="/trips"
-            className="hover:text-white text-lg "
+            className="hover:text-white text-lg text-right"
             onClick={() => setOpen(false)}
           >
             Trips
           </Link>
           <Link
             to="/search"
-            className="hover:text-white text-lg"
+            className="hover:text-white text-lg text-right"
             onClick={() => setOpen(false)}
           >
             Search
