@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=lovelo")
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* * {
+  margin: 10;
+  padding: 10;
+  box-sizing: border-box;
+  font-family: "Lovelo", sans-serif;
+  scroll-behavior: smooth;
+  color-scheme: light;
+} */
+
