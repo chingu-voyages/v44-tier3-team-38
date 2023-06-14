@@ -18,23 +18,27 @@ const Search: FC = () => {
   ) => {
     event.preventDefault();
 
-    try {
-      const response = await fetch(
-        `http://localhost:8080/yelp/${search}`
-      );
-      const data = await response.json();
+    if (search.trim() !== "") {
+      try {
+        const response = await fetch(
+          `http://localhost:8080/yelp/${search}`
+        );
+        const data = await response.json();
 
-      if (data.error) {
-        setErrorMessage(data.error.description);
+        if (data.error) {
+          setErrorMessage(data.error.description);
+          setSearchResults([]);
+        } else {
+          setSearchResults(data.businesses);
+          setErrorMessage("");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        setErrorMessage("An error occurred while fetching data.");
         setSearchResults([]);
-      } else {
-        setSearchResults(data.businesses);
-        setErrorMessage("");
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setErrorMessage("An error occurred while fetching data.");
-      setSearchResults([]);
+    } else {
+      setErrorMessage("Please provide a search term.");
     }
 
     setSearch("");
@@ -53,7 +57,7 @@ const Search: FC = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <SearchIcon type="submit" onClick={handleSubmit} />
+                <SearchIcon />
               </InputAdornment>
             ),
           }}
