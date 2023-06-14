@@ -7,6 +7,8 @@ const Search: FC = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
+  const apiEndpoint = "http://localhost:8080/yelp";
+
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -20,9 +22,7 @@ const Search: FC = () => {
 
     if (search.trim() !== "") {
       try {
-        const response = await fetch(
-          `http://localhost:8080/yelp/${search}`
-        );
+        const response = await fetch(`${apiEndpoint}/${search}`);
         const data = await response.json();
 
         if (data.error) {
