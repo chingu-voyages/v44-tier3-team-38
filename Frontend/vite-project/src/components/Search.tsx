@@ -19,8 +19,7 @@ const Search = () => {
       );
       const data = await response.json();
       console.log(data);
-      setSearchResults(data);
-      console.log(data.businesses.name);
+      setSearchResults(data.businesses);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -48,9 +47,9 @@ const Search = () => {
         />
       </form>
       {/* Display the search resutls */}
-      {/* {searchResults.map((result) => (
+      {searchResults.map((result) => (
         <div key={result.id}>{result.name}</div>
-      ))} */}
+      ))}
     </Container>
   );
 };
