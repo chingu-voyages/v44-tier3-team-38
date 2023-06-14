@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Container, TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Search = () => {
-  const [search, setSearch] = useState("");
+const Search: FC = () => {
+  const [search, setSearch] = useState<string>("");
   const [searchResults, setSearchResults] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (
+    event: React.ChangeEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
 
     try {
@@ -59,7 +63,7 @@ const Search = () => {
       {errorMessage && <div>{errorMessage}</div>}
       {/* Display the search resutls */}
       {searchResults.map((result) => (
-        <div key={result.id}>{result.name}</div>
+        <div key={result["id"]}>{result["name"]}</div>
       ))}
     </Container>
   );
