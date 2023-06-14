@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 const Search = () => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
@@ -18,10 +19,18 @@ const Search = () => {
         `http://localhost:8080/yelp/${search}`
       );
       const data = await response.json();
-      console.log(data);
-      setSearchResults(data.businesses);
+
+      if (data.error) {
+        setErrorMessage(data.error.description);
+        setSearchResults([]);
+      } else {
+        setSearchResults(data.businesses);
+        setErrorMessage("");
+      }
     } catch (error) {
       console.error("Error:", error);
+      setErrorMessage("An error occurred while fetching data.");
+      setSearchResults([]);
     }
 
     setSearch("");
@@ -46,6 +55,8 @@ const Search = () => {
           }}
         />
       </form>
+      {/* Display the error message if there is an error */}
+      {errorMessage && <div>{errorMessage}</div>}
       {/* Display the search resutls */}
       {searchResults.map((result) => (
         <div key={result.id}>{result.name}</div>
