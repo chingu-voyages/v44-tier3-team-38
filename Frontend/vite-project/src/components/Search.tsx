@@ -44,33 +44,37 @@ const Search: FC = () => {
         setSearchResults([]);
       }
     } else {
-      setErrorMessage("Please provide a search term.");
+      setErrorMessage("Please provide a location or business name.");
     }
 
     setSearch("");
   };
 
-  // const handleAddToTrip = async (tripId, name, address) => {
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:8080/trips/${tripId}/locations`,
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           name,
-  //           address,
-  //         }),
-  //       }
-  //     );
-  //     const data = await response.json();
-  //     console.log("Location added to database:", data); // Log the response from the server
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // };
+  const handleAddToTrip = async (result) => {
+    const tripId = 2; // This will need to be updated. 2 was only used for testing purposes
+    const name = result.name;
+    const address = result.location.address1;
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/trips/${tripId}/locations`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            address,
+          }),
+        }
+      );
+      const data = await response.json();
+      console.log("Location added to database:", data); // Log the response from the server
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <Container maxWidth="md" sx={{ mt: 20 }}>
@@ -99,7 +103,7 @@ const Search: FC = () => {
           <div>{result["name"]}</div>
           <Button
             variant="contained"
-            // onClick={() => handleAddToTrip(result)}
+            onClick={() => handleAddToTrip(result)}
           >
             Add to Trip
           </Button>
