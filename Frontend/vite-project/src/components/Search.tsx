@@ -1,5 +1,10 @@
 import React, { FC, useState } from "react";
-import { Container, TextField, InputAdornment } from "@mui/material";
+import {
+  Container,
+  TextField,
+  InputAdornment,
+  Button,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Search: FC = () => {
@@ -24,6 +29,7 @@ const Search: FC = () => {
       try {
         const response = await fetch(`${apiEndpoint}/${search}`);
         const data = await response.json();
+        console.log(data.businesses);
 
         if (data.error) {
           setErrorMessage(data.error.description);
@@ -43,6 +49,28 @@ const Search: FC = () => {
 
     setSearch("");
   };
+
+  // const handleAddToTrip = async (tripId, name, address) => {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:8080/trips/${tripId}/locations`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           name,
+  //           address,
+  //         }),
+  //       }
+  //     );
+  //     const data = await response.json();
+  //     console.log("Location added to database:", data); // Log the response from the server
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
 
   return (
     <Container maxWidth="md" sx={{ mt: 20 }}>
@@ -67,7 +95,15 @@ const Search: FC = () => {
       {errorMessage && <div>{errorMessage}</div>}
       {/* Display the search resutls */}
       {searchResults.map((result) => (
-        <div key={result["id"]}>{result["name"]}</div>
+        <div key={result["id"]}>
+          <div>{result["name"]}</div>
+          <Button
+            variant="contained"
+            // onClick={() => handleAddToTrip(result)}
+          >
+            Add to Trip
+          </Button>
+        </div>
       ))}
     </Container>
   );
