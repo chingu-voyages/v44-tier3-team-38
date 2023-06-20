@@ -26,7 +26,13 @@ module.exports = (sequelize, DataTypes) => {
     Trip.hasMany(models.Location, {
       foreignKey: "tripId",
     });
-    Trip.belongsTo(models.users);
+    Trip.belongsTo(models.users, {
+      foreignKey: {
+        name: 'userId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
+    });
   };
   return Trip;
 };
