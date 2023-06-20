@@ -5,22 +5,17 @@ import { SyntheticEvent } from "react";
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
 
-interface LoginActionCreator {
-  (email: string, password: string): ThunkDispatch<any, any, AnyAction> | any;
-}
-
 function Demo() {
   const dispatch = useDispatch();
-  const demoLogin = (event: SyntheticEvent) => {
+  const demoLogin = async (event: SyntheticEvent) => {
     event.preventDefault();
-    const email: string = "jon";
-    const password: string = "snow";
-    const loginAction: LoginActionCreator = login;
-    return dispatch(loginAction(email, password)).catch(
-      async (res: Response) => {
-        await res.json();
-      }
-    );
+    const username = "jon";
+    const password = "jon";
+    try {
+      await dispatch(login(username, password));
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (
