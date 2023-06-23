@@ -1,11 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../../store/session";
-import { SyntheticEvent } from "react";
 
 function Demo() {
   const dispatch = useDispatch();
-  const demoLogin = async (event: SyntheticEvent) => {
+  const demoLogin = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     const username = "jon";
     const password = "snow";

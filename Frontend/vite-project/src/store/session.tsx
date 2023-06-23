@@ -35,7 +35,7 @@ interface SessionState {
 
 const initialState: SessionState = { user: null };
 
-export const authenticate = () => async (dispatch: any) => {
+export const authenticate = () => async (dispatch: AnyAction) => {
   const response = await fetch("/api/auth/", {
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +53,8 @@ export const authenticate = () => async (dispatch: any) => {
 };
 
 export const login =
-  (username: string, password: string) => async (dispatch: any) => {
+  (username: string, password: string) =>
+  async (dispatch: AnyAction) => {
     const response = await fetch(
       "http://localhost:8080/users/login",
       {
@@ -82,7 +83,7 @@ export const login =
     }
   };
 
-export const logout = () => async (dispatch: any) => {
+export const logout = () => async (dispatch: AnyAction) => {
   const response = await fetch(
     "http://localhost:8080/users/sign-out",
     {
@@ -104,7 +105,7 @@ export const signUp =
     password: string,
     repeatPassword: string
   ) =>
-  async (dispatch: any) => {
+  async (dispatch: AnyAction) => {
     const response = await fetch(
       "http://localhost:8080/users/sign-up",
       {
