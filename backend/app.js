@@ -69,7 +69,14 @@ app.use(
   locationsRouter
 );
 
-app.use("/trips", tripsRouter);
+app.use(
+  "/users/:userId/trips",
+  (req, res, next) => {
+    req.userId = req.params.userId;
+    next();
+  }, 
+  tripsRouter
+);
 app.use("/users", usersRoutes);
 app.use("/yelp", yelpRoutes);
 

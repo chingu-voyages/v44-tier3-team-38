@@ -4,15 +4,22 @@ const Trip = require("../../db/models")["Trip"];
 
 //GET ALL TRIPS (FILTER BY USER ID ONCE USER AUTH IS DONE)
 router.get("/", async function (req, res, next) {
-  const trips = await Trip.findAll();
+  const userId = req.userId;
+  const trips = await Trip.findAll({
+    where: {
+      userId
+    }
+  });
   res.json(trips);
 });
 
 //CREATE NEW TRIP (ADD USER ID ONCE USER AUTH IS DONE)
 router.post("/", async function (req, res, next) {
+  const userId = req.userId;
   const title = req.body.title;
   const date = new Date(req.body.date);
   const newTrip = new Trip({
+    userId,
     title,
     date
   });
