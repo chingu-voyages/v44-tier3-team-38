@@ -53,6 +53,12 @@ const Search: FC = () => {
 
   const handleAddToTrip = async (result) => {
     const { user } = session;
+
+    if (!user) {
+      setErrorMessage("You must be logged in to add to a trip");
+      return;
+    }
+
     const userId = user.user.id;
 
     try {
