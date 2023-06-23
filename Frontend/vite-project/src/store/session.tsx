@@ -4,7 +4,7 @@ const REMOVE_USER = "session/REMOVE_USER";
 
 interface User {
   // Define the properties of the user object
-  id: number;
+  id: string;
   username: string;
   email: string;
 }
@@ -54,7 +54,7 @@ export const authenticate = () => async (dispatch: AnyAction) => {
 
 export const login =
   (username: string, password: string) =>
-  async (dispatch: AnyAction) => {
+  async (dispatch: Dispatch<AnyAction>) => {
     const response = await fetch(
       "http://localhost:8080/users/login",
       {
@@ -83,7 +83,7 @@ export const login =
     }
   };
 
-export const logout = () => async (dispatch: AnyAction) => {
+export const logout = () => async (dispatch: Dispatch<AnyAction>) => {
   const response = await fetch(
     "http://localhost:8080/users/sign-out",
     {
@@ -105,7 +105,7 @@ export const signUp =
     password: string,
     repeatPassword: string
   ) =>
-  async (dispatch: AnyAction) => {
+  async (dispatch: Dispatch<AnyAction>) => {
     const response = await fetch(
       "http://localhost:8080/users/sign-up",
       {
