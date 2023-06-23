@@ -67,7 +67,6 @@ const Search: FC = () => {
         `${serverRoute}/users/${userId}/trips`
       );
       const tripsData = await tripsResponse.json();
-      console.log(tripsData);
 
       // Use first trip in trips array
       const tripId = tripsData[0].id;
