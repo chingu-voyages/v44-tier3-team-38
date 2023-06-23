@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { useSelector } from "react-redux";
 import {
   Container,
   TextField,
@@ -11,8 +12,9 @@ const Search: FC = () => {
   const [search, setSearch] = useState<string>("");
   const [searchResults, setSearchResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
-
-  const apiEndpoint = "http://localhost:8080/yelp";
+  const session = useSelector((state) => state.session);
+  const serverRoute = "http://localhost:8080";
+  const yelpEndpoint = `${serverRoute}/yelp`;
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -27,9 +29,8 @@ const Search: FC = () => {
 
     if (search.trim() !== "") {
       try {
-        const response = await fetch(`${apiEndpoint}/${search}`);
+        const response = await fetch(`${yelpEndpoint}/${search}`);
         const data = await response.json();
-        console.log(data.businesses);
 
         if (data.error) {
           setErrorMessage(data.error.description);
@@ -51,28 +52,44 @@ const Search: FC = () => {
   };
 
   const handleAddToTrip = async (result) => {
-    const tripId = 2; // This will need to be updated. 2 was only used for testing purposes
-    const name = result.name;
-    const address = result.location.address1;
+    const { user } = session;
+    const userId = user.user.id;
 
     try {
-      const response = await fetch(
-        `http://localhost:8080/trips/${tripId}/locations`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            address,
-          }),
-        }
+      // Fetch user's trips
+      const tripsResponse = await fetch(
+        `${serverRoute}/users/${userId}/trips`
       );
-      const data = await response.json();
-      console.log("Location added to database:", data); // Log the response from the server
+      const tripsData = await tripsResponse.json();
+      console.log(tripsData);
+
+      // Use first trip in trips array
+      const tripId = tripsData[0].id;
+
+      const name = result.name;
+      const address = result.location.address1;
+
+      try {
+        const response = await fetch(
+          `${serverRoute}/trips/${tripId}/locations`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name,
+              address,
+            }),
+          }
+        );
+        const data = await response.json();
+        console.log("Location added to database:", data); // Log the response from the server
+      } catch (error) {
+        console.error("Error:", error);
+      }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error fetching user's trips:", error);
     }
   };
 
