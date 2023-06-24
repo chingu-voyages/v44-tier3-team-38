@@ -52,6 +52,9 @@ const Search: FC = () => {
   };
 
   const handleAddToTrip = async (result) => {
+    const name = result.name;
+    const address = result.location.address1;
+    // Get the data of the logged in user
     const { user } = session;
 
     if (!user) {
@@ -68,11 +71,14 @@ const Search: FC = () => {
       );
       const tripsData = await tripsResponse.json();
 
+      // Check to see if the user has a trip created
+      if (tripsData.length === 0) {
+        setErrorMessage("You must create a trip to add a location");
+        return;
+      }
+
       // Use first trip in trips array
       const tripId = tripsData[0].id;
-
-      const name = result.name;
-      const address = result.location.address1;
 
       try {
         const response = await fetch(
