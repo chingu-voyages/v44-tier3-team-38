@@ -12,7 +12,7 @@ const Search: FC = () => {
   const [search, setSearch] = useState<string>("");
   const [searchResults, setSearchResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const session = useSelector((state) => state.session);
+  const session = useSelector((state: any) => state.session);
   const serverRoute = "http://localhost:8080";
   const yelpEndpoint = `${serverRoute}/yelp`;
 
