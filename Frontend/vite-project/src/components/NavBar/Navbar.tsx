@@ -17,6 +17,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  console.log('user::', user)
+
   const onLogout = async () => {
     // e.preventDefault();
     await dispatch(logout());

@@ -79,7 +79,7 @@ export const login =
   };
 
 export const logout = () => async (dispatch: Dispatch<AnyAction>) => {
-  const response = await fetch("http://localhost:8080/users/delete-user", {
+  const response = await fetch("http://localhost:8080/users/sign-out", {
     headers: {
       "Content-Type": "application/json",
     },
@@ -100,7 +100,7 @@ export const signUp =
         username,
         email,
         password,
-        repeat_password: repeatPassword,
+        repeatPassword,
       }),
     });
 

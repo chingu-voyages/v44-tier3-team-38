@@ -49,7 +49,6 @@ const SignUpForm: React.FC<SignUpFormProps> = () => {
     setRepeatPassword(e.target.value);
   };
 
-  //   if (user) return <Redirect to="/" />;
 
   return (
     <form className="main-user-signup" onSubmit={onSignUp}>
@@ -114,7 +113,6 @@ const SignUpForm: React.FC<SignUpFormProps> = () => {
         <button className="user-buttons" type="submit">
           Sign Up
         </button>
-        {/* <Demo /> */}
       </div>
     </form>
   );
