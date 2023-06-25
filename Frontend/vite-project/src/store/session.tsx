@@ -1,9 +1,10 @@
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
+
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
 interface User {
-  // Define the properties of the user object
   id: string;
   username: string;
   email: string;
@@ -44,10 +45,7 @@ export const authenticate = () => async (dispatch: AnyAction) => {
 
   if (response.ok) {
     const data = await response.json();
-    if (data.errors) {
-      return;
-    }
-
+    if (data.errors) return;
     dispatch(setUser(data));
   }
 };
@@ -55,19 +53,16 @@ export const authenticate = () => async (dispatch: AnyAction) => {
 export const login =
   (username: string, password: string) =>
   async (dispatch: Dispatch<AnyAction>) => {
-    const response = await fetch(
-      "http://localhost:8080/users/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      }
-    );
+    const response = await fetch("http://localhost:8080/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    });
 
     if (response.ok) {
       const data = await response.json();
@@ -84,43 +79,30 @@ export const login =
   };
 
 export const logout = () => async (dispatch: Dispatch<AnyAction>) => {
-  const response = await fetch(
-    "http://localhost:8080/users/sign-out",
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  const response = await fetch("http://localhost:8080/users/delete-user", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-  if (response.ok) {
-    dispatch(removeUser());
-  }
+  if (response.ok) dispatch(removeUser());
 };
 
 export const signUp =
-  (
-    username: string,
-    email: string,
-    password: string,
-    repeatPassword: string
-  ) =>
+  (username: string, email: string, password: string, repeatPassword: string) =>
   async (dispatch: Dispatch<AnyAction>) => {
-    const response = await fetch(
-      "http://localhost:8080/users/sign-up",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-          repeat_password: repeatPassword,
-        }),
-      }
-    );
+    const response = await fetch("http://localhost:8080/users/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+        repeat_password: repeatPassword,
+      }),
+    });
 
     if (response.ok) {
       const data = await response.json();

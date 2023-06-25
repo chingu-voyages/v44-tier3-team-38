@@ -16,8 +16,7 @@ router.post("/login", userCtrl.login);
 // fetch user
 router.get("/login", authentication, userCtrl.getUser);
 
-// signup
-
+// signout
 router.post("/sign-out", userCtrl.signOut);
 
 //fetch all users

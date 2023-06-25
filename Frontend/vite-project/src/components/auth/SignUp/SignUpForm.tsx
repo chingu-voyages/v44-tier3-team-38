@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RootState, AppDispatch } from "../../../store/index";
 import { signUp } from "../../../store/session";
 // import Demo from "./Demo";
@@ -15,6 +15,7 @@ const SignUpForm: React.FC<SignUpFormProps> = () => {
   const [errors, setErrors] = useState<string[]>([]);
   const user = useSelector((state: RootState) => state.session.user);
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSignUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,6 +30,7 @@ const SignUpForm: React.FC<SignUpFormProps> = () => {
         setRepeatPassword("");
       }
     }
+    navigate("/");
   };
 
   const updateUsername = (e: ChangeEvent<HTMLInputElement>) => {

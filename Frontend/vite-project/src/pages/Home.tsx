@@ -13,7 +13,7 @@ import {
 
 const Home = () => {
   return (
-    <div style={{ marginTop: "50px", color: "#336B87" }}>
+    <div style={{ marginTop: "70px", color: "#336B87" }}>
       <Typography variant="h4">Welcome to RoundTrip</Typography>
       <br />
       <Carousel className="Example">

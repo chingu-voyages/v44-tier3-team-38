@@ -1,0 +1,6 @@
+.welcome-title {
+  text-transform: capitalize;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1.5rem;
+  color: rgb(51, 107, 135);
+}

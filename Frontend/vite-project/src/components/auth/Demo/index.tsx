@@ -7,7 +7,7 @@ function Demo() {
   const demoLogin = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     const username = "jon";
-    const password = "snow";
+    const password = "jon";
     try {
       await dispatch(login(username, password));
     } catch (error) {
