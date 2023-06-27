@@ -35,10 +35,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Users.associate = (models) => {
     Users.hasMany(models.Trip, {
-      foreignKey: {
-        name: "userId",
-        allowNull: false,
-      },
+      foreignKey: 'userId'
     });
   };
   return Users;

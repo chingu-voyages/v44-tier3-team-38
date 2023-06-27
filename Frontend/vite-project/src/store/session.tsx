@@ -4,7 +4,7 @@ const REMOVE_USER = "session/REMOVE_USER";
 
 interface User {
   // Define the properties of the user object
-  id: number;
+  id: string;
   username: string;
   email: string;
 }
@@ -35,7 +35,7 @@ interface SessionState {
 
 const initialState: SessionState = { user: null };
 
-export const authenticate = () => async (dispatch: any) => {
+export const authenticate = () => async (dispatch: AnyAction) => {
   const response = await fetch("/api/auth/", {
     headers: {
       "Content-Type": "application/json",
@@ -53,17 +53,21 @@ export const authenticate = () => async (dispatch: any) => {
 };
 
 export const login =
-  (email: string, password: string) => async (dispatch: any) => {
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+  (username: string, password: string) =>
+  async (dispatch: Dispatch<AnyAction>) => {
+    const response = await fetch(
+      "http://localhost:8080/users/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
@@ -79,12 +83,15 @@ export const login =
     }
   };
 
-export const logout = () => async (dispatch: any) => {
-  const response = await fetch("/api/auth/logout", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+export const logout = () => async (dispatch: Dispatch<AnyAction>) => {
+  const response = await fetch(
+    "http://localhost:8080/users/sign-out",
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   if (response.ok) {
     dispatch(removeUser());
@@ -92,20 +99,28 @@ export const logout = () => async (dispatch: any) => {
 };
 
 export const signUp =
-  (username: string, email: string, password: string, repeatPassword: string) =>
-  async (dispatch: any) => {
-    const response = await fetch("/api/auth/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-        repeat_password: repeatPassword,
-      }),
-    });
+  (
+    username: string,
+    email: string,
+    password: string,
+    repeatPassword: string
+  ) =>
+  async (dispatch: Dispatch<AnyAction>) => {
+    const response = await fetch(
+      "http://localhost:8080/users/sign-up",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          repeat_password: repeatPassword,
+        }),
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
