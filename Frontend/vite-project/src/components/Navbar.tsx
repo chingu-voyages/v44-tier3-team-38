@@ -32,7 +32,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="flex fixed flex-col justify-center bg-[#a6cfd5] w-[100%]">
+        <div className="flex fixed flex-col justify-center bg-[#a6cfd5] w-[97%]">
           <Link
             to="/"
             className="hover:text-white text-lg text-right"
