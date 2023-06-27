@@ -31,7 +31,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {isOpen && (
+      {/* {isOpen && (
         <div className="flex fixed flex-col justify-center bg-[#a6cfd5] w-[100%]">
           <Link
             to="/"
@@ -55,7 +55,7 @@ const Navbar = () => {
             Search
           </Link>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
