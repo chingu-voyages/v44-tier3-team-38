@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="h-[80px] w-[100%] bg-green">
       <div className="flex items-center justify-between px-5">
-      <Link to="/home">
+      <Link to="/">
           <img
             src="../../public/RoundTrip.png"
             alt="logo"
@@ -31,7 +31,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* {isOpen && (
+      {isOpen && (
         <div className="flex fixed flex-col justify-center bg-[#a6cfd5] w-[100%]">
           <Link
             to="/"
@@ -55,7 +55,7 @@ const Navbar = () => {
             Search
           </Link>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
