@@ -108,6 +108,6 @@ Start the server
   npm run dev
 ```
 
-Access the project in your browser at [`localhost:5174`](http://localhost:5174)
+Access the project in your browser at [`localhost:5173`](http://localhost:5173)
 
  
