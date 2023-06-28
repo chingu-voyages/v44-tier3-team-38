@@ -52,19 +52,30 @@ A trip planning application that allows users to create and organize a trip itin
 Clone the project
 
 ```bash
-  git clone git@github.com:CatherineJOnia/DinGo.git
+  git clone git@github.com:chingu-voyages/v44-tier3-team-38.git
 ```
 
-Go to the project directory
+Go to the backend
 
 ```bash
-  cd DinGo
+  cd backend
 ```
 
 Create database
 
 ```bash
-  createdb dingo
+  createdb chingu
+```
+
+Update .env file
+
+```bash
+  DB_USERNAME=
+  DB_PASSWORD=
+  DB_DATABASE=chingu
+  DB_HOST=localhost:8080
+  PRIVATE_KEY=privatekey123
+  YELP_API_KEY=NK7YfdBlAQjSuGgqhg8mJy6cV9qdtYZ56wf8cVv-duAPjt7u_VxYC5pJfx1srn54N1_M9W8GZRActgHZ06ngFMO_2aZ1FNZGOfYHv-oOgcSYrjeyEct-pikg91htZHYx
 ```
 
 Install dependencies
@@ -73,18 +84,30 @@ Install dependencies
   npm install
 ```
 
+Go to the frontend
+
+```bash
+  cd Frontend/vite-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Update .env
+
+```bash
+  VITE_GOOGLE_MAPS_API_KEY=AIzaSyAGiZ0jn302vwLSuChWuuRziuxMWfvEmKs
+```
+
 Start the server
 
 ```bash
-  npm run start:dev
+  npm run dev
 ```
 
-Access the project in your browser at [`localhost:3000`](http://localhost:3000)
-  
-Log in as an admin
-  
-```bash
-  cat@dingo.com
-  123cat
-```
+Access the project in your browser at [`localhost:5173`](http://localhost:5173)
+
  
