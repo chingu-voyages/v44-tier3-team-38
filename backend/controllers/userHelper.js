@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 exports.returnSignupError = (error, res) => {
   let message = error.message.toLowerCase();
   if (message.includes("validation"))
-    return res.status(422).json({ error: "email or username  already in use" });
+    return res.status(422).json({ error: "email or username already in use" });
   //
   return message.includes("salt") // check password hashing error
     ? res.status(400).json({ error: "password encryption failed" })

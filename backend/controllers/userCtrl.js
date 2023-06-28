@@ -12,7 +12,6 @@ exports.signUp = async (req, res) => {
     return res.status(400).json({ message: "request body can't be empty" });
   // encrypt pass and save to database
   // should throw an error if email or username is already present or if pass encryption failed
-  console.log('userBACKEND',user)
   try {
     const encryptedPass = encryptPassword(user.password);
     const newUser = await Users.create({
