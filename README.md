@@ -73,7 +73,7 @@ Update .env file
   DB_USERNAME=
   DB_PASSWORD=
   DB_DATABASE=chingu
-  DB_HOST=localhost:8080
+  DB_HOST=localhost
   PRIVATE_KEY=privatekey123
   YELP_API_KEY=NK7YfdBlAQjSuGgqhg8mJy6cV9qdtYZ56wf8cVv-duAPjt7u_VxYC5pJfx1srn54N1_M9W8GZRActgHZ06ngFMO_2aZ1FNZGOfYHv-oOgcSYrjeyEct-pikg91htZHYx
 ```
